@@ -1,0 +1,19 @@
+{
+  "name": "llm-agent",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ts-node example/test.ts",
+    "build": "tsc"
+  },
+  "keywords": [
+    "LLM Agent",
+    "OpenAI"
+  ],
+  "author": "GAFO TECH",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.29.2"
+  }
+}
