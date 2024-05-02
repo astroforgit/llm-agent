@@ -3,6 +3,10 @@
   "version": "0.0.11",
   "description": "",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegafo/llm-agent"
+  },
   "scripts": {
     "test": "ts-node example/test.ts",
     "build": "tsc",
