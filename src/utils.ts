@@ -1,6 +1,4 @@
-import * as fs from "fs";
-import * as readline from "readline";
-import { ReadLine } from "readline";
+import readline from "readline";
 import { Provider } from "./types";
 
 export const getConfig = (provider: Provider) => {
@@ -14,11 +12,16 @@ export const getConfig = (provider: Provider) => {
       apiKey: process.env.MISTRAL_API_KEY,
       baseURL: "https://api.mistral.ai/v1",
     };
+  } else if (provider === "groq") {
+    return {
+      apiKey: process.env.GROQ_API_KEY,
+      baseURL: "https://api.groq.com/openai/v1",
+    };
   }
   return undefined;
 };
 
-let rl: ReadLine | null = null;
+let rl: readline.ReadLine | null = null;
 
 export const ask = (question: string): Promise<string> => {
   return new Promise((resolve) => {
@@ -34,7 +37,7 @@ export const ask = (question: string): Promise<string> => {
       question += " ";
     }
 
-    rl.question(question, (answer) => {
+    rl?.question(question, (answer) => {
       resolve(answer);
     });
   });

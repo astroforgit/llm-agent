@@ -5,8 +5,8 @@ import { tools, config } from "./tools";
 import { ask } from "../src/utils";
 
 const agent = new Agent({
-  provider: Provider.OpenAI,
-  model: chatModels[Provider.OpenAI][0] as string,
+  provider: Provider.Groq,
+  model: chatModels[Provider.Groq][0] as string,
   temperature: 0.0,
   systemPrompt: "You are a helpful assistant.",
   tools,

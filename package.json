@@ -1,11 +1,12 @@
 {
   "name": "llm-agent",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "test": "ts-node example/test.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "LLM Agent",
@@ -15,5 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "openai": "^4.29.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
   }
 }

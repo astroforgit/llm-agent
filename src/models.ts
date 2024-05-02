@@ -23,4 +23,10 @@ export const chatModels: Record<Provider, string[]> = {
     "mistralai/Mistral-7B-Instruct-v0.1",
     "togethercomputer/CodeLlama-34b-Instruct",
   ],
+  [Provider.Groq]: [
+    "llama3-70b-8192",
+    "llama3-8b-8192",
+    "mixtral-8x7b-32768",
+    "gemma-7b-it",
+  ],
 };

@@ -2,6 +2,8 @@ export enum Provider {
   OpenAI = "openai",
   Together = "together",
   Mistral = "mistral",
+  Groq = "groq",
+  Ollama = "ollama",
 }
 
 export type ToolConfig = {
