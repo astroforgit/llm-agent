@@ -11,12 +11,25 @@ const agent = new Agent({
   systemPrompt: "You are a helpful assistant.",
   tools,
   config,
+  type:"chat"
+});
+
+const agentgrap = new Agent({
+  provider: Provider.Together,
+  model: chatModels[Provider.Together][3] as string,
+  temperature: 0.0,
+  systemPrompt: "You are a helpful assistant.",
+  tools,
+  config,
+  type:"image",
 });
 
 (async () => {
   while (true) {
     const input = await ask(">>>");
+    debugger;
+    await agentgrap.sendimg("girl dancing in the rain");
     const response = await agent.send(input);
-    console.log(response);
+    console.log("resss:",response);
   }
 })();

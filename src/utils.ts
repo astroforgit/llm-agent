@@ -1,7 +1,9 @@
 import readline from "readline";
 import { Provider } from "./types";
-
+import dotenv from 'dotenv';
 export const getConfig = (provider: Provider) => {
+  dotenv.config();
+ 
   if (provider === "together") {
     return {
       apiKey: process.env.TOGETHERAI_API_KEY,

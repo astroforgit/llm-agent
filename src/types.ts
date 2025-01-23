@@ -3,7 +3,7 @@ export enum Provider {
   Together = "together",
   Mistral = "mistral",
   Groq = "groq",
-  Ollama = "ollama",
+   
 }
 
 export type ToolConfig = {

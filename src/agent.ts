@@ -14,6 +14,7 @@ export class Agent {
   config?: ToolConfig[];
   tools?: Tools;
   messages: ChatCompletionMessageParam[];
+  type:string;
 
   constructor({
     provider,
@@ -23,6 +24,7 @@ export class Agent {
     historyLimit = -1,
     config = undefined,
     tools = undefined,
+    type = "chat",
   }: {
     provider: Provider;
     model?: string;
@@ -31,7 +33,9 @@ export class Agent {
     historyLimit?: number;
     config?: ToolConfig[];
     tools?: Tools;
+    type:string;
   }) {
+    this.type = type;
     this.provider = provider;
     this.model = model;
     this.temperature = temperature;
@@ -62,6 +66,17 @@ export class Agent {
     }
   }
 
+  async sendimg(input: string): Promise<any> {
+    const { message } = await chat(
+      this.messages,
+      this.config,
+      this.provider,
+      this.model
+    );
+
+    return message.content;
+  }
+
   async send(input: string, skipInput = false): Promise<any> {
     if (!skipInput) {
       if (!input) {
@@ -69,6 +84,8 @@ export class Agent {
       }
       this.messages.push({ role: "user", content: input });
     }
+    console.log("!!!",this.messages);
+
     const { message } = await chat(
       this.messages,
       this.config,
