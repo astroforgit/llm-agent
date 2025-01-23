@@ -4,6 +4,7 @@ import {
 } from "openai/resources";
 import { Provider, Tools, ToolConfig } from "./types";
 import { chat } from "./openai";
+import { createimage } from "./image";
 
 export class Agent {
   provider: Provider;
@@ -67,15 +68,17 @@ export class Agent {
   }
 
   async sendimg(input: string): Promise<any> {
-    const { message } = await chat(
-      this.messages,
-      this.config,
+    const res:any = await createimage(
+      input,
       this.provider,
       this.model
     );
-
-    return message.content;
+    return Promise.resolve();
+    //return message.content;
   }
+
+
+
 
   async send(input: string, skipInput = false): Promise<any> {
     if (!skipInput) {
